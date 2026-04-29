@@ -43,7 +43,10 @@ public class homePage {
         element.click();
     }
 
-    public String getBadgeCount(){ return shoppingCartBadge.getText(); }
+    public String getBadgeCount(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", shoppingCartBadge);
+        return shoppingCartBadge.getText(); }
 
     public YourCartPage clickOnCartIcon(){
         JavascriptExecutor js = (JavascriptExecutor) driver;

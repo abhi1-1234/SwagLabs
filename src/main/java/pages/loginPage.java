@@ -1,6 +1,5 @@
 package pages;
 
-import base.Browser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,10 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.awt.*;
 import java.time.Duration;
-
 import static base.Browser.*;
 
 /**
@@ -34,10 +31,10 @@ public class loginPage {
     @FindBy(id = "login-button")
     private static WebElement loginButton;
 
-    private static WebDriver driver;
+    protected static WebDriver driver;
     private static WebDriverWait driverWait;
     private static homePage home;
-    private Browser browser;
+    protected static String browserName;
 
     public loginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -61,57 +58,30 @@ public class loginPage {
     }
 
     public static homePage loginIntoSwagLabs(String browser, String user, String pass) throws AWTException {
-        if (browser.equalsIgnoreCase("chrome")){
-            logInfo("Launch Chrome browser");
+        browserName = browser;
+        if (browserName.equalsIgnoreCase("chrome")){
             driver = launchChrome();
-            logInfo("Browser launched successfully");
-
-            logInfo("Enter URL in browser and maximize window");
             driver.get("https://www.saucedemo.com/");
             driver.manage().window().maximize();
-            logInfo("URL entered successfully and window maximized");
         }
-        if (browser.equalsIgnoreCase("firefox")){
-            logInfo("Launch Firefox browser");
+        if (browserName.equalsIgnoreCase("firefox")){
             driver = launchFirefox();
-            logInfo("Browser launched successfully");
-
-            logInfo("Enter URL in browser and maximize window");
             driver.get("https://www.saucedemo.com/");
             driver.manage().window().maximize();
-            logInfo("URL entered successfully and window maximized");
         }
-        if (browser.equalsIgnoreCase("msedge")){
-            logInfo("Launch Microsoft Edge browser");
+        if (browserName.equalsIgnoreCase("msedge")){
             driver = launchMsEdge();
-            logInfo("Browser launched successfully");
-
-            logInfo("Enter URL in browser and maximize window");
             driver.get("https://www.saucedemo.com/");
             driver.manage().window().maximize();
-            logInfo("URL entered successfully and window maximized");
         }
-
-
-        logInfo("Validate that Login page displayed successfully");
         driverWait.until(ExpectedConditions.visibilityOf(loginPageLogo));
-        logInfo("Validation passed successfully");
-
-        logInfo("Enter Username as [ "+user+" ] and Password as [ "+pass+" ]");
         setUserName(user);
         setPassword(pass);
-        logInfo("Username and Password entered successfully");
-
-        logInfo("Click on 'Login' button");
         clickLoginButton();
-        logInfo("Clicked on login button");
-
         home = new homePage(driver);
         return home;
     }
 
     public static void teardown(){ driver.quit(); }
-
-    public static void logInfo(String message){ log.info(message); }
 
 }
