@@ -1,9 +1,6 @@
 package testPackage;
 
 import Utils.Utility;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import dataFile.test1Data;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -23,20 +20,22 @@ import static pages.loginPage.*;
  *
  */
 
+//@Listeners(testListener.class)
 public class test1 implements test1Data {
 
     private homePage home;
     private YourCartPage yourCartPage;
     private CheckoutPage checkoutPage;
-    static ExtentSparkReporter reporter;
+//    static ExtentSparkReporter reporter;
+//    static ExtentReports test;
 
     @Parameters("browser")
     @BeforeTest
-    public void launchBrowser(@Optional("Chrome") String browser) throws AWTException {
+    public void launchBrowser(String browser) throws AWTException {
 
-        reporter = new ExtentSparkReporter("test-output/ExtendReport/Extent.html");
-        ExtentReports extend = new ExtentReports();
-        extend.attachReporter(reporter);
+//        reporter = new ExtentSparkReporter("test-output/ExtendReport/Extent.html");
+//        ExtentReports extend = new ExtentReports();
+//        extend.attachReporter(reporter);
 
         if (browser.equalsIgnoreCase(chrome)){
             log("Log into Swag Lags with Username [ "+userName+" ] and Password [ "+password+" ]");

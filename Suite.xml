@@ -2,7 +2,7 @@
 <suite name="MySuite">
 
     <listeners>
-        <listener class-name="extendReport.ExtentTestNGIReporterListener"></listener>
+        <listener class-name="extendReport.testListener"></listener>
     </listeners>
 
     <test name="TestGroup1">

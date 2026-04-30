@@ -39,7 +39,7 @@ public class Utility extends loginPage {
 
         LocalDateTime d = LocalDateTime.now();
 
-        File dest = new File("test-output\\Failed_Test_Screenshots "+className+"\\"+browserName+" "+ TestID + " " + dtf.format(d) + ".jpeg");
+        File dest = new File("test-output\\Failed_Test_Screenshots \\"+browserName+"\\"+className+"\\"+ TestID + "\\" + dtf.format(d) + ".jpeg");
         if (!dest.exists()){
             dest.mkdirs();
         }
