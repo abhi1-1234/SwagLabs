@@ -1,41 +1,28 @@
-Framework Structure -
+This project is a scalable and maintainable test automation framework built using Selenium WebDriver, Java, and TestNG. It is designed using the Page Object Model (POM) to separate test logic from page interactions, improving readability and reusability.
 
-project-root
-│
-├── src/main/java
-│   ├── base
-│   │   └── Browser.java
-│   ├── utils
-│   │    └── Utility.java
-│   ├── reports
-│   │   ├── ExtentManager.java
-│   │   ├── ExtentTestManager.java
-│   │   └── TestListener.java
-│   └── pages
-│       ├── LoginPage.java
-│       ├── homePage.java
-|       ├── CheckoutPage.java
-|       └── YourCartPage.java
-|
-├── src/test/java
-│   ├── dataFile
-|   |     └── test1Data
-|   ├── extendReport
-|   |     ├── extendManager.java
-|   |     ├── extendTestManager.java
-|   |     └─ testListener.java
-|   ├── testPackage
-|   |      └── test1.java
-|   └── Utils
-|         └── Utility.java
-│
-├── test-output
-|   ├── screenshots
-|   |      └── test1
-|   |            ├── chrome
-|   |            ├── firefox
-|   |            └── msedge
-│   └── ExtentReport.html    
-│
-└── pom.xml
-└── Suite.xml
+Key Features : -
+
+Cross-browser testing support (Chrome, Firefox, Edge)
+Page Object Model (POM) design pattern
+Data-driven testing using external data files
+Detailed Extent Reports with execution status
+Automatic screenshot capture on test failure
+Organized folder structure for easy scalability
+TestNG suite execution using Suite.xml
+
+Framework Structure : -
+
+base → Browser setup and driver initialization
+pages → All web page classes (Login, Home, Cart, Checkout)
+utils → Reusable utility methods
+reports → Extent Report configuration and listeners
+testPackage → Test cases implementation
+dataFile → data which we used in our Test class
+test-output → Reports and screenshots
+
+Tech Stack : -
+
+Selenium WebDriver
+Java
+TestNG
+Maven
