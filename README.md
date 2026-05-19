@@ -7,7 +7,7 @@ Extend Reports :-
 <img width="1917" height="915" alt="image" src="https://github.com/user-attachments/assets/52f6d178-20e1-4b3b-a78b-180bf3314436" />
 
 
-This project is a scalable and maintainable test automation framework built using Selenium WebDriver, Java, and TestNG. It is designed using the Page Object Model (POM) to separate test logic from page interactions, improving readability and reusability.
+  This project is a scalable and maintainable test automation framework built using Selenium WebDriver, Java, and TestNG. It is designed using the Page Object Model (POM) to separate test logic from page interactions, improving readability and reusability.
 
 Key Features : -
 
